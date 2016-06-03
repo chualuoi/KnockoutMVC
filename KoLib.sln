@@ -30,6 +30,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoLib.T4Helpers", "KoLib.T4
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "KoLib.Modeling", "KoLib.Modeling\KoLib.Modeling.modelproj", "{2B446ADE-6FFA-4773-9AA6-C9607D763F75}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E3011C8B-A0CF-4559-88BE-41505F2CB6BD}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
