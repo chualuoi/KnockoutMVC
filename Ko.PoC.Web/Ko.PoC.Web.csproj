@@ -32,6 +32,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +52,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ko.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KoLib.T4Helpers.1.0.0\lib\net45\Ko.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ko.Mvc, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KoLib.T4Helpers.1.0.0\lib\net45\Ko.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ko.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KoLib.T4Helpers.1.0.0\lib\net45\Ko.Utils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KoLib.T4Helpers, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KoLib.T4Helpers.1.0.0\lib\net45\KoLib.T4Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -348,10 +365,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ko.Mvc\Ko.Mvc.csproj">
-      <Project>{62574c1a-ba58-45a4-8661-2f638f0741e2}</Project>
-      <Name>Ko.Mvc</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ko.PoC.Models\Ko.PoC.Models.csproj">
       <Project>{43374c98-18ae-480a-b467-37ed2f3725eb}</Project>
       <Name>Ko.PoC.Models</Name>
@@ -359,14 +372,6 @@
     <ProjectReference Include="..\Ko.PoC.ViewModels\Ko.PoC.ViewModels.csproj">
       <Project>{2b7bdd55-7741-4a01-a5be-e66dbd7eac4d}</Project>
       <Name>Ko.PoC.ViewModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ko.Utils\Ko.Utils.csproj">
-      <Project>{bb92c061-3acf-4c43-bcda-441b2b1342de}</Project>
-      <Name>Ko.Utils</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KoLib.T4Helpers\KoLib.T4Helpers.csproj">
-      <Project>{c4c37ea3-7a42-498b-88fa-d593d5441c03}</Project>
-      <Name>KoLib.T4Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

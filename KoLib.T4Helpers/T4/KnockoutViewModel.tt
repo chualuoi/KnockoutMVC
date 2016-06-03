@@ -1,0 +1,294 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<# 
+//System.Diagnostics.Debugger.Launch(); System.Diagnostics.Debugger.Break();
+#>
+<#@ import namespace="System.Reflection"#>
+<#@ output extension=".js" #>
+<#@ assembly name="$(TargetPath)\..\Ko.Mvc.dll" #>
+<#@ assembly name="$(TargetPath)\..\Ko.Utils.dll" #>
+<#@ import namespace="Ko.Mvc"#>
+<#@ import namespace="Ko.Mvc.KnockoutAttributes"#>
+<#@ assembly name="System.Core.dll" #>
+<#@ import namespace="System.Linq"#>
+<#@ import namespace="System.Collections.Generic"#>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ include file="Utilities.ttinclude"#>
+<#@ include file="Config.ttinclude"#>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="Ko.Utils.Extensions" #>
+
+//This T4 template will find all classes which either ends with a ViewModel suffix or decorated with KnockoutViewModel attribute
+//and then generate corresponding knockout view model for them.
+
+<# 
+    //Using host property to retreive project item containing this template file
+    IServiceProvider hostServiceProvider = (IServiceProvider)Host;
+    EnvDTE.DTE dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+    EnvDTE.ProjectItem containingProjectItem = dte.Solution.FindProjectItem(Host.TemplateFile);    
+
+    //Get the project containing this template file
+    Project project = containingProjectItem.ContainingProject;
+
+    //Get path of output assembly of this project.
+    //We will use this path to load the assembly to process
+    string fullPath = project.Properties.Item("FullPath").Value.ToString();
+    string outputPath = project.ConfigurationManager.ActiveConfiguration.Properties.Item("OutputPath").Value.ToString();
+    string outputDir = Path.Combine(fullPath, outputPath);
+    
+    //Declare variable to contains all knockout view model types
+    var allTypes = new List<Type>();
+    
+    foreach (var assemblyConfig in assemblies)
+    {	  
+        var path = Path.Combine(outputDir, assemblyConfig.Name);
+        assemblyConfig.Name = path;
+
+        //Get all types in current assembly which is knockout view model
+        var allViewModels = (from Type type in assemblyConfig.GetMatchTypes() where (type.IsKnockoutViewModel()) select type).ToList();
+        
+        //Add all types in current assembly
+        allTypes.AddRange(allViewModels);
+    }
+    
+    //Exit if there is no knockout view models detected
+    if (allTypes == null || allTypes.Count() == 0)
+    {
+        return null;
+    }
+    
+    //Create the output folder if it does not exist
+    var absolutePath = Path.Combine(Path.GetDirectoryName(Host.TemplateFile), outputFolder);
+    if(!Directory.Exists(absolutePath))
+    {
+        Directory.CreateDirectory(absolutePath);
+    }
+
+    //Include output folder in current project, if it is not included yet.
+    var outputFolderProjectItem = ProjectHelper.FindProjectItem(project, absolutePath);
+    if(outputFolderProjectItem == null)
+    {
+        outputFolderProjectItem = ProjectHelper.IncludeDirectoryInProject(project, absolutePath);
+    }
+    
+    //Search for all knockout view model used in found knockout view model (child types)
+    //We have to search inside found view model, because it may use some knockout view model inside it,
+    //and this view model is in other assembly
+    var childTypes = new List<Type>();
+    foreach (var t in allTypes)
+    {
+        childTypes.AddRange(t.GetChildKnockoutViewModel());
+    }
+    allTypes.AddRange(childTypes);
+
+    //Remove all text currently in generation environment
+    this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+        
+    //Create view model for each of the strongly-typed view model in this project
+    foreach (var t in allTypes.Distinct())
+    {
+			var fileName = t.GetKnockoutFileName();
+			var parentPath = ProjectHelper.GetParentItem(t, absolutePath, baseNamespaces);
+			var directory = Directory.Exists(parentPath) ? parentPath : Path.GetDirectoryName(parentPath);	
+			var outputGeneratedFileName = fileName + ".generated.js"; 
+			string outputGeneratedFilePath = Path.Combine(directory, outputGeneratedFileName);  
+			var outputFileName = fileName + ".js";        				
+			string outputFilePath = Path.Combine(directory, outputFileName);
+			//System.Diagnostics.Debug.WriteLine(outputFilePath); 
+			if(!File.Exists(outputGeneratedFilePath) || !File.Exists(outputFilePath))
+			{
+				var parentItem = ProjectHelper.CreateNamespaceNode(t, project, absolutePath, baseNamespaces);
+				if(!File.Exists(outputGeneratedFilePath))
+				{				
+					//Write auto-generated notification in the header
+					WriteHeader();
+					GenerateViewModelForType(t);   	
+					SaveOutput(outputGeneratedFileName, parentItem);
+				}
+				//Check if *ViewModel.js file exists. If not, generate it. Otherwise leave it intact.			
+				if(t.IsKnockoutViewModel() && !File.Exists(outputFilePath))
+				{					
+					GenerateViewModelExtensions(t);
+					SaveOutput(outputFileName, parentItem);
+				}
+			}					
+    }	
+#>
+<#+
+    
+    /// <summary>
+    /// Generate knockout js view model for type
+    /// </summary>
+    /// <returns></returns>
+    public void GenerateViewModelForType(Type t)
+    {
+            var baseClassIsViewModel = t.BaseType.IsKnockoutViewModel();
+
+            //Get all public instance property and field
+            var fieldsProperties = t.GetPublicFieldsAndProperties();
+            
+            var ignoreList = new List<string>();
+            var constructors = new Dictionary<string, string>();
+            
+            //Process public instance fields and properties				
+            foreach (var property in fieldsProperties)
+            {
+                if(property.HasAttribute(typeof(KnockoutIgnoreAttribute)))
+                {
+                    //Adding ' character at begining and end of property name
+                    ignoreList.Add("'" + property.Name + "'");
+                }
+				else
+				{
+					var constructor = KnockoutT4Helper.CreateConstructor(property, false);
+					if( constructor.HasValue)
+					{
+						constructors.Add(constructor.Value.Key, constructor.Value.Value);
+					}
+				}
+            }
+
+            var ignore = string.Join<string>(", ", ignoreList);			
+#>
+
+koLib.namespace('<#=t.Namespace#>');
+
+<#= t.GenericFullName() #> = function (rawData, parent, defaults, mappingOptions) {
+    var self = this;
+    
+    defaults = $.extend({}, <#= t.DefaultJsonString() #>, defaults);
+    
+    mappingOptions = $.extend({}, {
+        'ignore': [<#= ignore#>]<#+
+    foreach (var constructor in constructors)
+    {
+        this.WriteLine(",");
+#>
+        <#= constructor.Key #>:{
+            create: function(options){
+                <#=constructor.Value#>
+            }
+        }<#+
+    }
+#>    
+    }, mappingOptions);	
+    <#+ 
+    if(baseClassIsViewModel)
+    { 
+        #>
+        
+	    <#+ 
+    } 
+    else 
+    {
+        #>
+		
+	self.MappingCompleted = ko.observable(false);
+	
+	rawData = $.extend({}, defaults, rawData);	
+	
+	ko.mapping.fromJS(rawData, mappingOptions, self);
+	
+	self.parent = ko.observable(parent);
+	self.root = ko.observable();
+	self.ResetRoot = ko.computed(function(){
+		var xparent = self.parent();
+		if(xparent){
+			self.root(xparent.root());
+		}
+	});		
+		
+	self.InitExtensions(); 	
+	
+	self.MappingCompleted(true);	
+        <#+ 
+    }     
+    if(t.IsRootKnockoutViewModel())
+    {
+    #>
+
+    self.Changed = ko.observable(false);
+    self.OriginalValue = ko.mapping.toJSON(self);
+    self.TrackChanges = ko.computed(function () {
+		var result = false;
+        if (!self.Changed()) {
+			result = ko.mapping.toJSON(self) != self.OriginalValue;
+            self.Changed(result);
+        }
+		return result;
+    });
+
+    self.root(self);
+    <#+ 
+    }
+    #>
+    
+    return self;
+};
+
+<#+    
+}
+    public void GenerateViewModelExtensions(Type t)
+    {
+        if(t.IsKnockoutViewModel())
+        {
+            //Get all public instance property and field
+			var fieldsProperties = t.GetPublicFieldsAndProperties();            
+            var eventHandlers = new List<string>();
+            var computedProperties = new List<string>();
+            
+            //Process public instance fields and properties				
+            foreach (var property in fieldsProperties)
+            {
+                if(property.HasAttribute(typeof(KnockoutComputedAttribute)))
+                {
+                    computedProperties.Add(property.Name);
+                }
+                if(property.HasAttribute(typeof(KnockoutEventHandlerAttribute)))
+                {
+                    eventHandlers.Add(property.Name);
+                }                
+            }
+#>
+<#= t.GenericFullName() #>.prototype.InitExtensions = function () {
+    var self = this;    
+<#+ if(computedProperties.Count() > 0){
+#>
+
+    /*------------------computed properties------------------*/    
+<#+
+    foreach (var cp in computedProperties)
+    {
+#>
+    self.<#=cp#> = ko.computed(function(){
+        //TODO: Write computing logic here:
+        return undefined;
+    });
+<#+
+    }
+#>
+    /*-------------------------------------------------------*/
+<#+ 
+} 
+if(eventHandlers.Count > 0)
+{
+#>
+
+    /*--------------------event handler----------------------*/
+<#+
+    foreach (var cp in eventHandlers)
+    {
+#>
+    self.<#=cp#> = function(){
+        //TODO: Write event handler logic here:
+    };
+<#+
+    }
+#>
+    /*-------------------------------------------------------*/
+<#+}#>
+    return self;
+};
+<#+}
+}#>

@@ -1,0 +1,23 @@
+﻿<#@ template hostspecific="True" debug="True" #>
+<#@ assembly name="$(TargetDir)KoLib.T4Helpers.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="KoLib.T4Helpers" #>
+<#+
+    public string[] baseNamespaces = new []{"Ko.PoC.ViewModels", "Ko.PoC"};
+    public string outputFolder = @"..\Scripts\ViewModels\";
+	public bool useKnockoutMapping = true;
+    public List<AssemblyConfig> assemblies = new List<AssemblyConfig>
+        {
+            new AssemblyConfig
+            {
+                Name = "Ko.PoC.ViewModels.dll",
+                NamespaceCollection = new List<NamespaceConfig>
+                {
+                    new NamespaceConfig
+                    {                       
+                        Name = "Ko.PoC.ViewModels"
+                    }
+                }
+            }
+       };
+#>

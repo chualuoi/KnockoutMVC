@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>KoLib.T4Helpers</id>
+    <version>1.0.0.0</version>
+    <title>KoLib.T4Helpers</title>
+    <authors>chualuoi</authors>
+    <owners>chualuoi</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/chualuoi/KnockoutMVC</projectUrl>
+    <iconUrl>http://mysite.com/32_button_green.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>KnockoutMVC</description>
+    <releaseNotes>Enable writing KnockoutJS in strongly-typed manner</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>KnockoutJS ASP.NET T4 Knockout</tags>
+  </metadata>
+  <files>
+    <file src="T4\*" target="content\App_Data" />
+  </files>
+  
+</package>

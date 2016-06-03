@@ -3,6 +3,7 @@ using Ko.PoC.Models;
 
 namespace Ko.PoC.ViewModels
 {
+    [KnockoutViewModel]
     public class DemoViewModel
     {
         public RequiredModel RequiredModel { get; set; }
