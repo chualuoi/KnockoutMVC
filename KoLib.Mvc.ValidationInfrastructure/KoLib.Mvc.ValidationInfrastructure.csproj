@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{04E909F4-18A0-4255-B721-C247308D669D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KoLib.Mvc.ValidationInfrastructure</RootNamespace>
+    <AssemblyName>KoLib.Mvc.ValidationInfrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugStaticData|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugStaticData\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Avelo.Web.Mvc.ValidationInfrastructure.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugIsolatedMode|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugIsolatedMode\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Avelo.Web.Mvc.ValidationInfrastructure.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\CollectionRuleAttribute.cs" />
+    <Compile Include="Attributes\Constants.cs" />
+    <Compile Include="Attributes\CurrencyAttribute.cs" />
+    <Compile Include="Attributes\CustomRangeAttribute.cs" />
+    <Compile Include="Attributes\CustomRegularExpressionAttribute.cs" />
+    <Compile Include="Attributes\CustomRequiredAttribute.cs" />
+    <Compile Include="Attributes\CustomStringLengthAttribute.cs" />
+    <Compile Include="Attributes\DateLengthAttribute.cs" />
+    <Compile Include="Attributes\DateRegexAttribute.cs" />
+    <Compile Include="Attributes\DateRequiredAttribute.cs" />
+    <Compile Include="Attributes\DateTimeMaxAttribute.cs" />
+    <Compile Include="Attributes\DateTimeMinAttribute.cs" />
+    <Compile Include="Attributes\DateTimeRangeAttribute.cs" />
+    <Compile Include="Attributes\DummyRuleForAttribute.cs" />
+    <Compile Include="Attributes\FriendlyCaseIdAttribute.cs" />
+    <Compile Include="Attributes\MaxAttribute.cs" />
+    <Compile Include="Attributes\MaxStringLengthAttribute.cs" />
+    <Compile Include="Attributes\MinAttribute.cs" />
+    <Compile Include="Attributes\MinStringLengthAttribute.cs" />
+    <Compile Include="Attributes\MustFalseAttribute.cs" />
+    <Compile Include="Attributes\MustFalseParameterizedAttribute.cs" />
+    <Compile Include="Attributes\MustTrueAttribute.cs" />
+    <Compile Include="Attributes\PercentageAttribute.cs" />
+    <Compile Include="Attributes\Resources\DataAnnotationResources.Designer.cs">
+      <DependentUpon>DataAnnotationResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Attributes\RuleFor.cs" />
+    <Compile Include="Attributes\RuleForMultipleAttribute.cs" />
+    <Compile Include="Attributes\RuleForMultipleParameterizedAttribute.cs" />
+    <Compile Include="Attributes\RuleForParameterizedAttribute.cs" />
+    <Compile Include="Attributes\ValidationAttributeHelper.cs" />
+    <Compile Include="Attributes\WarningAttribute.cs" />
+    <Compile Include="Attributes\WarningParameterizedAttribute.cs" />
+    <Compile Include="Contracts\KoLibModelBase.cs" />
+    <Compile Include="Contracts\DateTimeProvider.cs" />
+    <Compile Include="Contracts\IDateTimeProvider.cs" />
+    <Compile Include="Contracts\INormalizableModel.cs" />
+    <Compile Include="Contracts\IValidationModel.cs" />
+    <Compile Include="Helpers\CollectionHelpers.cs" />
+    <Compile Include="Helpers\CollectionRule.cs" />
+    <Compile Include="Helpers\CollectionRuleExpression.cs" />
+    <Compile Include="Helpers\ExpressionHelpers.cs" />
+    <Compile Include="Helpers\FactorVisitor.cs" />
+    <Compile Include="Helpers\ForEachLeaf.cs" />
+    <Compile Include="Helpers\PropertyExpression.cs" />
+    <Compile Include="Helpers\RuleExpression.cs" />
+    <Compile Include="Helpers\RuleVisitor.cs" />
+    <Compile Include="Helpers\TreeHelpers.cs" />
+    <Compile Include="Helpers\ValidationHelpers.cs" />
+    <Compile Include="Helpers\ValidationLeaf.cs" />
+    <Compile Include="Helpers\ValidationNode.cs" />
+    <Compile Include="Helpers\ValidationTree.cs" />
+    <Compile Include="ModelBinder\KoLibModelBinder.cs" />
+    <Compile Include="ModelBinder\CustomModelBindingContext.cs" />
+    <Compile Include="ModelBinder\DecimalModelBinder.cs" />
+    <Compile Include="ModelBinder\Resources\MvcResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MvcResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBinder\TryGetValueDelegate.cs" />
+    <Compile Include="ModelBinder\TypeHelpers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Attributes\Resources\DataAnnotationResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DataAnnotationResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModelBinder\Resources\MvcResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MvcResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ko.Core\Ko.Core.csproj">
+      <Project>{4e3a2a4f-2b02-4329-9497-41caf4a4b801}</Project>
+      <Name>Ko.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ko.Mvc\Ko.Mvc.csproj">
+      <Project>{62574c1a-ba58-45a4-8661-2f638f0741e2}</Project>
+      <Name>Ko.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ko.Utils\Ko.Utils.csproj">
+      <Project>{bb92c061-3acf-4c43-bcda-441b2b1342de}</Project>
+      <Name>Ko.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

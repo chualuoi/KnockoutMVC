@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E3A2A4F-2B02-4329-9497-41CAF4A4B801}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ko.Core</RootNamespace>
+    <AssemblyName>Ko.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BindingAttributes\AfterRenderBinding.cs" />
+    <Compile Include="BindingAttributes\ApplicableBinding.cs" />
+    <Compile Include="BindingAttributes\AttrBinding.cs" />
+    <Compile Include="BindingAttributes\BankSortCodeBinding.cs" />
+    <Compile Include="BindingAttributes\BooleanBinding.cs" />
+    <Compile Include="BindingAttributes\CapitaliseBinding.cs" />
+    <Compile Include="BindingAttributes\CardDateBinding.cs" />
+    <Compile Include="BindingAttributes\CardNumberBinding.cs" />
+    <Compile Include="BindingAttributes\ChangeBinding.cs" />
+    <Compile Include="BindingAttributes\CheckedBinding.cs" />
+    <Compile Include="BindingAttributes\ClickBinding.cs" />
+    <Compile Include="BindingAttributes\ComplexBinding.cs" />
+    <Compile Include="BindingAttributes\CssBinding.cs" />
+    <Compile Include="BindingAttributes\CurrencyBinding.cs" />
+    <Compile Include="BindingAttributes\CurrencyNoDecimalBinding.cs" />
+    <Compile Include="BindingAttributes\CurrencyNonDecimalTextBinding.cs" />
+    <Compile Include="BindingAttributes\CurrencyNonDecimalValueBinding.cs" />
+    <Compile Include="BindingAttributes\CurrencyTextBinding.cs" />
+    <Compile Include="BindingAttributes\CurrencyValueBinding.cs" />
+    <Compile Include="BindingAttributes\DataBinding.cs" />
+    <Compile Include="BindingAttributes\DateBinding.cs" />
+    <Compile Include="BindingAttributes\DateTextBinding.cs" />
+    <Compile Include="BindingAttributes\DateValueBinding.cs" />
+    <Compile Include="BindingAttributes\DisableBinding.cs" />
+    <Compile Include="BindingAttributes\DoBBinding.cs" />
+    <Compile Include="BindingAttributes\DoubleClickBinding.cs" />
+    <Compile Include="BindingAttributes\EnableBinding.cs" />
+    <Compile Include="BindingAttributes\EventBinding.cs" />
+    <Compile Include="BindingAttributes\ForeachBinding.cs" />
+    <Compile Include="BindingAttributes\FormattedTextBinding.cs" />
+    <Compile Include="BindingAttributes\FormattedValueBinding.cs" />
+    <Compile Include="BindingAttributes\GroupBinding.cs" />
+    <Compile Include="BindingAttributes\HasFocusBinding.cs" />
+    <Compile Include="BindingAttributes\HiddenValueBinding.cs" />
+    <Compile Include="BindingAttributes\HtmlBinding.cs" />
+    <Compile Include="BindingAttributes\IEventBinding.cs" />
+    <Compile Include="BindingAttributes\IfBinding.cs" />
+    <Compile Include="BindingAttributes\IfNotBinding.cs" />
+    <Compile Include="BindingAttributes\IntegerBinding.cs" />
+    <Compile Include="BindingAttributes\IValueBinding.cs" />
+    <Compile Include="BindingAttributes\KeyUpBinding.cs" />
+    <Compile Include="BindingAttributes\KnockoutBinding.cs" />
+    <Compile Include="BindingAttributes\LazyBinding.cs" />
+    <Compile Include="BindingAttributes\LowercaseBinding.cs" />
+    <Compile Include="BindingAttributes\NameBinding.cs" />
+    <Compile Include="BindingAttributes\OptionsBinding.cs" />
+    <Compile Include="BindingAttributes\OptionsBooleanBinding.cs" />
+    <Compile Include="BindingAttributes\OptionsCaptionBinding.cs" />
+    <Compile Include="BindingAttributes\OptionsTextBinding.cs" />
+    <Compile Include="BindingAttributes\OptionsValueBinding.cs" />
+    <Compile Include="BindingAttributes\PatternBinding.cs" />
+    <Compile Include="BindingAttributes\PercentageBinding.cs" />
+    <Compile Include="BindingAttributes\PercentageTextBinding.cs" />
+    <Compile Include="BindingAttributes\PercentageValueBinding.cs" />
+    <Compile Include="BindingAttributes\PostcodeBinding.cs" />
+    <Compile Include="BindingAttributes\ReadonlyBinding.cs" />
+    <Compile Include="BindingAttributes\SelectedOptionsBinding.cs" />
+    <Compile Include="BindingAttributes\SentencecaseBinding.cs" />
+    <Compile Include="BindingAttributes\StyleBinding.cs" />
+    <Compile Include="BindingAttributes\SubmitBinding.cs" />
+    <Compile Include="BindingAttributes\TemplateBinding.cs" />
+    <Compile Include="BindingAttributes\TextBinding.cs" />
+    <Compile Include="BindingAttributes\TextTrimBinding.cs" />
+    <Compile Include="BindingAttributes\TitlecaseBinding.cs" />
+    <Compile Include="BindingAttributes\TooltipBinding.cs" />
+    <Compile Include="BindingAttributes\TypeBinding.cs" />
+    <Compile Include="BindingAttributes\UniqueNameBinding.cs" />
+    <Compile Include="BindingAttributes\UppercaseBinding.cs" />
+    <Compile Include="BindingAttributes\ValueBinding.cs" />
+    <Compile Include="BindingAttributes\VisibleBinding.cs" />
+    <Compile Include="BindingAttributes\WithBinding.cs" />
+    <Compile Include="IKoContext.cs" />
+    <Compile Include="KnockoutContants.cs" />
+    <Compile Include="KnockoutHelper.cs" />
+    <Compile Include="KoBindings.generic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

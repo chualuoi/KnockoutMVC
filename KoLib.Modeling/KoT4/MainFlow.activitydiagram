@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="2222f087-8759-47eb-b8c3-76d074edb023" name="Activity1" linkedPackageId="f5e44214-81a4-440d-b2e1-d8d3ac957e7c" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="2ca86acf-099f-442c-b8c1-068cde94f30f" name="Activity1" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="2f90f234-c482-44cb-bd4c-498298fa3c1e" />
+        <nodes>
+          <initialNode Id="8845eeff-5f92-4db2-b032-8656f5e8fbb5" name="Initial1" isLeaf="false">
+            <elementDefinition Id="2b38be3b-0001-4658-95f1-f91c99f0de8c" />
+            <flowNodeTargets>
+              <controlFlow Id="936b9789-2871-46f5-a405-047bfe58a34b" isLeaf="false">
+                <opaqueActionMoniker Id="d85b87ef-ab5a-488f-bc4c-990abbb679c6" LastKnownName="Get configuration" />
+                <elementDefinition Id="4e3d9a59-642e-46b0-adc4-7749d2cd70e9" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="d85b87ef-ab5a-488f-bc4c-990abbb679c6" name="Get configuration" isLeaf="false">
+            <elementDefinition Id="d6b7ac39-50ac-4f2b-ba90-8685262b0386" />
+            <flowNodeTargets>
+              <controlFlow Id="879c29d2-30a8-43bd-865c-67074033f169" isLeaf="false">
+                <opaqueActionMoniker Id="31f7a148-b7a7-40c4-9629-9a6ceb17d86b" LastKnownName="Get all Knockout view models match configuration" />
+                <elementDefinition Id="0bf7552c-7f0a-4fc7-8049-3f9d90687476" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="31f7a148-b7a7-40c4-9629-9a6ceb17d86b" name="Get all Knockout view models match configuration" isLeaf="false">
+            <elementDefinition Id="b30b1191-b8c5-49ce-81db-9a554dd8ee41" />
+            <flowNodeTargets>
+              <controlFlow Id="03421a40-269b-46ab-b636-7dee0d4b4c1a" isLeaf="false">
+                <opaqueActionMoniker Id="95de0f23-50d9-4ba4-9277-e8865103d301" LastKnownName="Get all models used in found Knockout View models" />
+                <elementDefinition Id="5f09dbb9-6357-4be3-9d90-f537bf7967c0" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="95de0f23-50d9-4ba4-9277-e8865103d301" name="Get all models used in found Knockout View models" isLeaf="false">
+            <elementDefinition Id="1adcf1b1-9cc7-4427-8f11-3ff1f9c8175e" />
+            <flowNodeTargets>
+              <controlFlow Id="cf0d45f3-9155-4187-bb31-55faecb5ab8a" isLeaf="false">
+                <joinNodeMoniker Id="152c822d-9940-47c4-a0da-578969aba8eb" LastKnownName="Join1" />
+                <elementDefinition Id="0895fa28-a186-4802-823e-393961d00b48" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="6bf50e9c-7d36-4b8d-ba23-74b76f5a85b9" name="Decision1" isLeaf="false">
+            <elementDefinition Id="81af9dd7-f30f-406b-9e55-d1e49ca4cadd" />
+            <flowNodeTargets>
+              <controlFlow Id="177730df-8aec-4f99-b0b0-b0f37bacb4b6" guard="Has more Ko View Models" name="Has more Ko View Models" isLeaf="false">
+                <opaqueActionMoniker Id="f3728976-cf30-4401-8967-ae52f713328b" LastKnownName="Generate *ViewModel.generated.js file if not exist or content has changed" />
+                <description>Has more Ko View Models</description>
+                <elementDefinition Id="ee1702e2-b526-4d93-9bfd-fa1cd3e196ae" />
+              </controlFlow>
+              <controlFlow Id="73b0f51b-eb41-40a8-88bb-4e9ebab512e3" isLeaf="false">
+                <activityFinalNodeMoniker Id="6abefddd-17af-4d45-b1f6-f22593a15efa" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="1d0498b7-46e7-49fa-b650-4c8a80f124f3" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="f3728976-cf30-4401-8967-ae52f713328b" name="Generate *ViewModel.generated.js file if not exist or content has changed" isLeaf="false">
+            <elementDefinition Id="272e03a8-44fe-43be-9593-2aec1e134d83" />
+            <flowNodeTargets>
+              <controlFlow Id="7825a80c-0e75-415d-87d2-0e139264a60d" isLeaf="false">
+                <decisionNodeMoniker Id="1c392881-9da5-435d-a78c-369f34609650" LastKnownName="Decision2" />
+                <elementDefinition Id="20d771f6-d039-48ca-8f67-25f3fdbb711e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="b424b5e7-dd88-4404-afa4-1f66fd98e64f" name="Generate *ViewModel.js if not exist" isLeaf="false">
+            <elementDefinition Id="422c3ade-19b2-4ac4-9214-61992bc34b11" />
+            <flowNodeTargets>
+              <controlFlow Id="fa0b428e-301c-4ef7-b43d-17db02c1fe6f" isLeaf="false">
+                <joinNodeMoniker Id="152c822d-9940-47c4-a0da-578969aba8eb" LastKnownName="Join1" />
+                <elementDefinition Id="6d5258e0-923c-4b29-96b9-8a9f8c6c17d3" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="1c392881-9da5-435d-a78c-369f34609650" name="Decision2" isLeaf="false">
+            <elementDefinition Id="eff1149d-c4f1-4fe0-882c-2711d4165366" />
+            <flowNodeTargets>
+              <controlFlow Id="1c6e9745-9765-4d65-8362-aca72cf0e4b8" guard="Class is view model not model" isLeaf="false">
+                <opaqueActionMoniker Id="b424b5e7-dd88-4404-afa4-1f66fd98e64f" LastKnownName="Generate *ViewModel.js if not exist" />
+                <elementDefinition Id="063b5338-39a7-4eed-be28-00c97b7e5be5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode Id="6abefddd-17af-4d45-b1f6-f22593a15efa" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="4b79f978-da42-401e-8ea5-0840aea75454" />
+          </activityFinalNode>
+          <joinNode Id="152c822d-9940-47c4-a0da-578969aba8eb" name="Join1" isLeaf="false">
+            <elementDefinition Id="f241b28a-3357-460f-89e6-7af917042715" />
+            <flowNodeTargets>
+              <controlFlow Id="1ba4da37-07c2-4e3a-9e80-9e7902024ac2" isLeaf="false">
+                <decisionNodeMoniker Id="6bf50e9c-7d36-4b8d-ba23-74b76f5a85b9" LastKnownName="Decision1" />
+                <elementDefinition Id="ebea4f5b-8195-42aa-a665-fcec8b7eacb2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="f5e44214-81a4-440d-b2e1-d8d3ac957e7c" name="KoLib.Modeling">
+    <elementDefinition Id="2b6491a1-6bd5-4cc7-965a-585364c5a4e7" />
+    <profileInstances>
+      <packageHasProfileInstances Id="73af443d-4f7a-4c45-9e16-1f4ad86a58cc">
+        <profileInstance Id="cc55970d-f43b-4f4e-9284-f91138245cfa" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="ea8e801a-a49a-4180-8ee1-1a58f8cec183">
+        <profileInstance Id="e7de3d6f-85b0-4b48-9b91-da09e779ffca" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

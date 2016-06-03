@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="2b6491a1-6bd5-4cc7-965a-585364c5a4e7"
+  name="KoLib.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="ae706e93-c8a3-4699-850b-79c6af329c72">
+      <body>These properties and fields are not Knockout Computed or event handler property</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="ef54b9cd-71bb-4ac0-a1a9-39aad10212b8"
+          LastKnownName="Get all public properties and fields (instance level)"
+          LastKnownLocation="KoLib.Modeling.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="0a8956d6-8e71-40aa-a523-b6e50ccfb876">
+      <body>This flow chart describe how to generate extension part of the view model (contains computed property, event handler, navigation property, etc)</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <activity
+        Id="2f90f234-c482-44cb-bd4c-498298fa3c1e"
+        name="Activity1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="2b38be3b-0001-4658-95f1-f91c99f0de8c"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4e3d9a59-642e-46b0-adc4-7749d2cd70e9"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="d6b7ac39-50ac-4f2b-ba90-8685262b0386"
+                  LastKnownName="Get configuration"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="d6b7ac39-50ac-4f2b-ba90-8685262b0386"
+            name="Get configuration"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0bf7552c-7f0a-4fc7-8049-3f9d90687476"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b30b1191-b8c5-49ce-81db-9a554dd8ee41"
+                  LastKnownName="Get all Knockout view models match configuration"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="b30b1191-b8c5-49ce-81db-9a554dd8ee41"
+            name="Get all Knockout view models match configuration"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5f09dbb9-6357-4be3-9d90-f537bf7967c0"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1adcf1b1-9cc7-4427-8f11-3ff1f9c8175e"
+                  LastKnownName="Get all models used in found Knockout View models"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="1adcf1b1-9cc7-4427-8f11-3ff1f9c8175e"
+            name="Get all models used in found Knockout View models"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0895fa28-a186-4802-823e-393961d00b48"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="f241b28a-3357-460f-89e6-7af917042715"
+                  LastKnownName="Join1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="81af9dd7-f30f-406b-9e55-d1e49ca4cadd"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ee1702e2-b526-4d93-9bfd-fa1cd3e196ae"
+                guard="Has more Ko View Models"
+                name="Has more Ko View Models"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="272e03a8-44fe-43be-9593-2aec1e134d83"
+                  LastKnownName="Generate *ViewModel.generated.js file if not exist or content has changed"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+                <description>Has more Ko View Models</description>
+              </controlFlow>
+              <controlFlow
+                Id="1d0498b7-46e7-49fa-b650-4c8a80f124f3"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="4b79f978-da42-401e-8ea5-0840aea75454"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="272e03a8-44fe-43be-9593-2aec1e134d83"
+            name="Generate *ViewModel.generated.js file if not exist or content has changed"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="20d771f6-d039-48ca-8f67-25f3fdbb711e"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="eff1149d-c4f1-4fe0-882c-2711d4165366"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="422c3ade-19b2-4ac4-9214-61992bc34b11"
+            name="Generate *ViewModel.js if not exist"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6d5258e0-923c-4b29-96b9-8a9f8c6c17d3"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="f241b28a-3357-460f-89e6-7af917042715"
+                  LastKnownName="Join1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="eff1149d-c4f1-4fe0-882c-2711d4165366"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="063b5338-39a7-4eed-be28-00c97b7e5be5"
+                guard="Class is view model not model"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="422c3ade-19b2-4ac4-9214-61992bc34b11"
+                  LastKnownName="Generate *ViewModel.js if not exist"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode
+            Id="4b79f978-da42-401e-8ea5-0840aea75454"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <joinNode
+            Id="f241b28a-3357-460f-89e6-7af917042715"
+            name="Join1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ebea4f5b-8195-42aa-a665-fcec8b7eacb2"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="81af9dd7-f30f-406b-9e55-d1e49ca4cadd"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="924a5717-9564-43e7-81ea-5bc8e7477bb7"
+        name="Generated part"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <opaqueAction
+            Id="e6dbe405-2c24-4eb8-b158-ef416ff8df0d"
+            name="Generate Header"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1b93206d-af32-466b-b534-65f128b742c7"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ef54b9cd-71bb-4ac0-a1a9-39aad10212b8"
+                  LastKnownName="Get all public properties and fields (instance level)"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <initialNode
+            Id="330ccffd-c084-42b5-8f3a-886515296eb4"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c77dc314-74b4-4aec-8e4c-738f5b489b35"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="99d6cbfe-0ffe-44b7-8e3f-07c5a7ff3c53"
+                  LastKnownName="Decision5"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="ef54b9cd-71bb-4ac0-a1a9-39aad10212b8"
+            name="Get all public properties and fields (instance level)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0f47c864-a08d-4894-b382-e34ee56fdc16"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="3b8fdddc-facd-4738-b899-afd9f3b31d3b"
+                  LastKnownName="Join1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="3b8fdddc-facd-4738-b899-afd9f3b31d3b"
+            name="Join1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cad8f953-5bf0-4220-a4cd-ecc769f4c149"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="1990d029-2263-4df9-9e3a-e618feef375e"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <decisionNode
+            Id="1990d029-2263-4df9-9e3a-e618feef375e"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="56c2f7ad-d513-4947-b46d-1ca5d4569315"
+                guard="For each property"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="7eedfd62-a4ee-4d12-a395-082001a4f956"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="06bd76b7-4d72-4b19-9962-0a8239fade36"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="32facd66-1277-4a19-a779-67fc735688e2"
+                  LastKnownName="Decision4"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="fe797058-4338-40f9-8295-c04912f9c5c5"
+            name="Ignore and continue"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cd6de70b-7c9b-4502-bb9c-3cc89e712da5"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="3b8fdddc-facd-4738-b899-afd9f3b31d3b"
+                  LastKnownName="Join1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="7eedfd62-a4ee-4d12-a395-082001a4f956"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cc9a40ef-5b8f-4ecd-883c-d205db575ad4"
+                guard="Property type is primitive"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="5ae02a2a-1c91-407c-a29b-a105fcde2a66"
+                  LastKnownName="Decision3"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="26fafaeb-76f7-4384-a8d1-4b613a3fc3c9"
+                guard="Property is complex type"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="94ceeb4d-57af-463d-b23f-9f160a8acb92"
+                  LastKnownName="Create constructor for the property"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="94ceeb4d-57af-463d-b23f-9f160a8acb92"
+            name="Create constructor for the property"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ae07cd4b-22cb-4c6a-abbb-01d05ff444ae"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="3b8fdddc-facd-4738-b899-afd9f3b31d3b"
+                  LastKnownName="Join1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="5ae02a2a-1c91-407c-a29b-a105fcde2a66"
+            name="Decision3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="af2598f3-b692-41fc-9e73-bec641655321"
+                guard="Use mapping plug-in"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="fe797058-4338-40f9-8295-c04912f9c5c5"
+                  LastKnownName="Ignore and continue"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e4653752-9067-440a-b86b-343f50b89e78"
+                guard="No mapping plug-in"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b993e76c-6a01-4a15-9f75-d1844ae74792"
+                  LastKnownName="Create explicit property"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="b993e76c-6a01-4a15-9f75-d1844ae74792"
+            name="Create explicit property"
+            isLeaf="false" />
+          <decisionNode
+            Id="32facd66-1277-4a19-a779-67fc735688e2"
+            name="Decision4"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="41b12918-a794-4a71-99f6-0ac097bb674e"
+                guard="File content changed"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="80c0b363-2515-4d02-9519-cd02c5b94f8d"
+                  LastKnownName="Save the output"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="25f3fbc2-fa4f-4ea6-af14-a5c4d0cd0944"
+                guard="Content not changed"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="4d199895-cde7-48d7-8e48-8e12b0c04795"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="80c0b363-2515-4d02-9519-cd02c5b94f8d"
+            name="Save the output"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d1d9bd73-153f-4516-ac1c-3be88c69fe3c"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="4d199895-cde7-48d7-8e48-8e12b0c04795"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="4d199895-cde7-48d7-8e48-8e12b0c04795"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="fd7c2a7a-17dd-44e0-860e-c9e0688f9e9c"
+            name="Get knockout  ignore mapping"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="207ea1b5-62de-4495-a389-2247d115d6f7"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e6dbe405-2c24-4eb8-b158-ef416ff8df0d"
+                  LastKnownName="Generate Header"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="99d6cbfe-0ffe-44b7-8e3f-07c5a7ff3c53"
+            name="Decision5"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="27460201-f6fe-4bf3-8019-ab8d2cd04d07"
+                guard="Not use mapping"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e6dbe405-2c24-4eb8-b158-ef416ff8df0d"
+                  LastKnownName="Generate Header"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d083df47-9fca-4beb-91d1-69cf3a0e06f4"
+                guard="Use mapping"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="fd7c2a7a-17dd-44e0-860e-c9e0688f9e9c"
+                  LastKnownName="Get knockout  ignore mapping"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="6ef679c8-cc99-44e0-a361-364ce0d5afdd"
+        name="Generate extension"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="202ed2b0-f20b-4ad1-9fc4-ddb3096f6931"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8b35d406-fecb-4bd2-8a72-2649a8a25d3e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="fdd112e3-560f-4fee-ad30-a6b6fdaefe1d"
+                  LastKnownName="Get all public computed properties and fields as computedProperties"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode
+            Id="e7a327e8-62ce-4d7c-a271-724f17e5b7ce"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="fdd112e3-560f-4fee-ad30-a6b6fdaefe1d"
+            name="Get all public computed properties and fields as computedProperties"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7dd201ba-1fac-4c52-8790-2438e7cfffde"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7069ce7d-1617-4fe2-baba-55397ab9bb64"
+                  LastKnownName="Get all event handler"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="7069ce7d-1617-4fe2-baba-55397ab9bb64"
+            name="Get all event handler"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="590f5ac0-220a-4c8d-bcf0-c55699c6cf5d"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="00040cac-7224-4669-a094-69c20b57190d"
+                  LastKnownName="Get all navigation properties"
+                  LastKnownLocation="KoLib.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="00040cac-7224-4669-a094-69c20b57190d"
+            name="Get all navigation properties"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

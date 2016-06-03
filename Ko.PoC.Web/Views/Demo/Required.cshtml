@@ -1,0 +1,21 @@
+﻿@inherits Ko.Mvc.KnockoutEnabledViewPage<Ko.PoC.Models.Person>
+
+<div>
+    @Html.LabelFor(x => x.Name)
+    @Ko.TextBoxFor(x => x.Name)
+</div>
+
+<div>
+    @Html.LabelFor(x => x.Occupation)
+    @Ko.TextBoxFor(x => x.Occupation)
+</div>
+
+<div>
+    @Html.LabelFor(x => x.Name)
+    @Ko.TextBox("Name")
+</div>
+
+<div>
+    @Html.LabelFor(x => x.Occupation)
+    @Ko.TextBox("Occupation")
+</div>

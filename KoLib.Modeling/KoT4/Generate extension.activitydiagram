@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ffebe6bd-e3e8-42c4-9055-bf2e9f0efc77" name="Generate extension" linkedPackageId="506171bf-1d49-4582-986d-58ab479e5d88" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="d65df0d9-0a18-4596-b5e0-8744224ee958">
+      <elementDefinition Id="0a8956d6-8e71-40aa-a523-b6e50ccfb876" />
+      <body>This flow chart describe how to generate extension part of the view model (contains computed property, event handler, navigation property, etc)</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="fef9f7b7-04de-46a8-bceb-1ca35fd55cd9">
+      <profileInstance Id="f79de3b2-f2fc-4e6b-a29a-3d784ac6c2d1" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="cd9425c9-87f5-4c8b-a71d-006d00c641b7">
+      <profileInstance Id="932c4691-9567-4a61-a064-06ef44effbe5" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="42c40e27-c3f4-45ca-9798-e1c8ae764a32" name="Generate extension" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="6ef679c8-cc99-44e0-a361-364ce0d5afdd" />
+        <nodes>
+          <initialNode Id="1b072ce3-1f6a-4101-9970-fd8f30ced62f" name="Initial1" isLeaf="false">
+            <elementDefinition Id="202ed2b0-f20b-4ad1-9fc4-ddb3096f6931" />
+            <flowNodeTargets>
+              <controlFlow Id="81e0239c-fda2-4dd4-a666-10ce17dad24d" isLeaf="false">
+                <opaqueActionMoniker Id="1fc903dc-0937-41a3-827e-5d02924161a4" LastKnownName="Get all public computed properties and fields as computedProperties" />
+                <elementDefinition Id="8b35d406-fecb-4bd2-8a72-2649a8a25d3e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode Id="6478b23a-016f-47b7-a42e-46ee109c2465" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="e7a327e8-62ce-4d7c-a271-724f17e5b7ce" />
+          </activityFinalNode>
+          <opaqueAction Id="1fc903dc-0937-41a3-827e-5d02924161a4" name="Get all public computed properties and fields as computedProperties" isLeaf="false">
+            <elementDefinition Id="fdd112e3-560f-4fee-ad30-a6b6fdaefe1d" />
+            <flowNodeTargets>
+              <controlFlow Id="4d71764a-f4c3-4eda-90bb-c3784e3a691b" isLeaf="false">
+                <opaqueActionMoniker Id="600753bc-a2a3-4e73-ba67-b149c8b8361c" LastKnownName="Get all event handler" />
+                <elementDefinition Id="7dd201ba-1fac-4c52-8790-2438e7cfffde" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="600753bc-a2a3-4e73-ba67-b149c8b8361c" name="Get all event handler" isLeaf="false">
+            <elementDefinition Id="7069ce7d-1617-4fe2-baba-55397ab9bb64" />
+            <flowNodeTargets>
+              <controlFlow Id="9628d5ee-00f9-49dd-8792-29fb98b872aa" isLeaf="false">
+                <opaqueActionMoniker Id="fc69521e-eeb2-4de9-b60f-106fdf8d6e54" LastKnownName="Get all navigation properties" />
+                <elementDefinition Id="590f5ac0-220a-4c8d-bcf0-c55699c6cf5d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="fc69521e-eeb2-4de9-b60f-106fdf8d6e54" name="Get all navigation properties" isLeaf="false">
+            <elementDefinition Id="00040cac-7224-4669-a094-69c20b57190d" />
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="506171bf-1d49-4582-986d-58ab479e5d88" name="KoLib.Modeling">
+    <elementDefinition Id="2b6491a1-6bd5-4cc7-965a-585364c5a4e7" />
+  </package>
+</activityRootModel>
