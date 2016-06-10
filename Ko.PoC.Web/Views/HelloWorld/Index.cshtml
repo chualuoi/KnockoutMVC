@@ -1,0 +1,28 @@
+﻿@using VM = Ko.PoC.ViewModels;
+@inherits Ko.Mvc.KnockoutEnabledViewPage<VM.HelloWorldViewModel>
+
+@section scripts
+{
+    <script src="~/Scripts/ViewModels/HelloWorldViewModel.generated.js"></script>
+    <script src="~/Scripts/ViewModels/HelloWorldViewModel.js"></script>
+    <script>
+        $(document).ready(function () {
+            vm = new Ko.PoC.ViewModels.HelloWorldViewModel();
+            ko.applyBindings(vm);
+        });
+    </script>
+}
+
+<div class="row">
+    <div>
+        @Html.LabelFor(x => x.FirstName)
+        @Ko.TextBoxFor(x => x.FirstName)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.LastName)
+        @Ko.TextBoxFor(x => x.LastName)
+    </div>
+
+    Full Name: @Ko.DisplayFor(x => x.FullName)
+</div>

@@ -2,11 +2,12 @@
 
 namespace Ko.PoC.Web.Controllers
 {
-    public class HelloWorldController : Controller
+    public class HelloWorldController : BaseController
     {
         // GET: HelloWorld
         public ActionResult Index()
         {
+            InitializeViewBag();
             return View();
         }
     }
